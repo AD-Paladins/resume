@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andres Paladines</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico?v=1.2" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css?v=2.3">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init('x81swtg5imRXcxWoV');
+    })();
+  </script>
+  <script type="text/javascript">
+    window.onload = function () {
+      document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        let fullname = document.getElementById('fullname').value;
+        let email = document.getElementById('email').value;
+        let message = document.getElementById('message').value;
+        const sendButton = document.querySelector("[data-form-btn]");
+        const spinner = document.querySelector("[data-form-spinner]");
+
+        sendButton.classList.toggle("hidden");
+        spinner.classList.toggle("active");
+        emailjs.send("service_mmby7ym", "template_uvba8cp", {
+          to_name: "Andres D. Paladines",
+          from_name: fullname,
+          reply_to: email,
+          message: message
+        }).then(function () {
+          document.getElementById('fullname').value = "";
+          document.getElementById('email').value = "";
+          document.getElementById('message').value = "";
+          sendButton.classList.toggle("hidden");
+          spinner.classList.toggle("active");
+          alert('Message sent!');
+        }, function (error) {
+          sendButton.classList.toggle("hidden");
+          spinner.classList.toggle("active");
+          alert("We can't reach the email provider. Please try again later.");
+          console.log(error);
+        });
+      });
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Andres D. Paladines" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Andres D. Paladines">Andres D. Paladines</h1>
+
+          <p class="title">Software Engineer / iOS Developer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <!-- <ion-icon name="mail-outline"></ion-icon> -->
+              <img src="./assets/images/icons/icons8-email-96.png" alt="mobile app icon" width="24">
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:andrespaladines@gmail.com" class="contact-link">andrespaladines @gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <!-- <ion-icon name="phone-portrait-outline"></ion-icon> -->
+              <img src="./assets/images/icons/icons8-iphone-x-96.png" alt="mobile app icon" width="24">
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+12133522795" class="contact-link">+1 (954) 254-6732</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <!-- <ion-icon name="location-outline"></ion-icon> -->
+              <img src="./assets/images/icons/icons8-user-location-96.png" alt="mobile app icon" width="24">
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Deerfield Beach, Florida, USA</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+<!-- 
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/andres-paladines-71b76815b/" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+ -->
+          <li class="social-item">
+            <a href="https://github.com/adpaladines" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://stackoverflow.com/users/3430658/andres-paladines" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-stackoverflow"></ion-icon>
+            </a>
+          </li>
+
+          <!-- <li class="social-item">
+            <a href="https://ad-paladins.github.io/vcard-portfolio/" class="social-link">
+              <ion-icon name="globe"></ion-icon>
+            </a>
+          </li> -->
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+          <!-- <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li> -->
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Software engineer with 6+ years of experience in software development
+            for companies as
+            <a href="https://www.linkedin.com/company/gea-internacional/" class="contact-client" target="_blank" rel="noopener noreferrer">GEA Internacional
+              Ecuador</a>,
+            <a href="https://www.linkedin.com/company/technisys/" class="contact-client" target="_blank" rel="noopener noreferrer">Technisys Ecuador</a>.
+            Proficient in Swift iOS,
+            with experience in Flutter, React-Native and the entire lifecycle from
+            development to publishing apps.
+            Reliable and subject matter expert are phrases to describe me.
+          </p>
+          <p>
+            My job is to create and implement mobile applications so that they are functional and user-friendly to use.
+            I enjoy helping other developers with their doubts. This is another way to learn more about
+            my job.
+            <!-- Experience in designing/building/configuring in documentation related to fintech applications such as BdP (Banco del Pacífico), Macro (Banco Macro), Onboarding (Banco del Pacífico). -->
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What i'm doing</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icons/icons8-iphone-x-96.png" alt="mobile app icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Mobile apps</h4>
+
+                <p class="service-item-text">
+                  Professional development of applications for iOS and Android.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icons/icons8-development-96.png
+                " alt="design icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">UI mobile interfaces</h4>
+
+                <p class="service-item-text">
+                  Modern and high-quality designs made at a professional level.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icons/icons8-react-native-96.png" alt="camera icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Hybrid Developing</h4>
+
+                <p class="service-item-text">
+                  Making Flutter or React-Native application solutions for small businesses.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icons/icons8-app-store-96.png" alt="camera icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Applications Publishing</h4>
+
+                <p class="service-item-text">
+                  Going through the entire lifecycle from functional solutions to publishing the app in AppStore and
+                  PlayStore.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials
+        -->
+
+        <!-- <section class="testimonials">
+
+          <h3 class="h3 testimonials-title">Testimonials</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </section> -->
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!--
+          - clients
+        -->
+
+        <section class="clients">
+
+          <h3 class="h3 clients-title">Partners</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="https://www.linkedin.com/company/gea-internacional/" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/images/logos/gea-logo.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://www.linkedin.com/company/technisys/" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/images/logos/technisys-logo.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://delmonteag.com.ec" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/images/logos/delmonteag-logo.png" alt="client logo">
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Academy Background</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">CertiProf - Scrum Master Professional Certificate (SMPC®)</h4>
+
+              <span>2020</span>
+
+              <p class="timeline-text">
+                Issued on 28 July 2020. Expired on 28 July 2022
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">University of Guayaquil - Computers Systems Engineering</h4>
+
+              <span>2011 - 2017</span>
+
+              <p class="timeline-text">
+                My team won first price award in the technology fair of 2015 with the project ”EasyShopping”.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <!--
+          - timeline
+        -->
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">TechConsulting - Senior iOS developer / SME
+              </h4>
+
+              <span>2023 — Present</span>
+              <ul>
+                <li>
+                  <p class="timeline-text">• Comprehensive development of apps for Fintech/Shopping/Cometial iOS apps.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Migrations from UIKit Storyboards/ViewControllers to SwiftUI views.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Migrations from MVC to MVVM and MVVM-C.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Migrations from Closures to Async Await, Combine, PromiseKit.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Working on apps from scratch for UIkit and SwiftUI.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Planning and implementing CI/CD in Jenkins and Fastlane alongide with DevOps on iOS apps.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Documentation related to the implementations and integrations in CI/CD,
+                    third party frameworks and new features on iOS apps.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Documentation for Onboarding of new developers.</p>
+                </li>
+
+                <li>
+                  <p class="timeline-text">• Work in agile team with tools like Jira, Bitbucket, Confluence, Trello,
+                    Slack, etc.</p>
+                </li>
+              </ul>
+
+            </li>
+
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Technisys Ecuador - iOS mobile developer / Software design supervisor
+              </h4>
+
+              <span>2019 — 2023</span>
+              <ul>
+                <li>
+                  <p class="timeline-text">• Comprehensive development of apps for fintech iOS applications.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Embed TOC and Renaper (provider) framework to client biometric liveness
+                    authentication software.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Embed FacePhi (provider) framework to client biometric liveness
+                    authentication software.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Redesign apps and its assets (gallery, images and icons)</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Applying new features and supporting on iOS developments.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Planning and implementing CI/CD on iOS apps.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Documentation related to the implementations and integrations in CI/CD,
+                    third party frameworks and new features on iOS apps.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Work in agile teams with tools like Jira, Bitbucket, Confluence, Trello,
+                    Slack, etc.</p>
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Gea Internacional (Ecuador) - iOS mobile developer</h4>
+
+              <span>2017 — 2019</span>
+
+              <ul>
+                <li>
+                  <p class="timeline-text">• Comprehensive development of apps for iOS to increase sells of services,
+                    including chat, geo-location and notifications.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Redesign apps and its assets (gallery, imagesandicons) to give a better
+                    end-user experience.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Develop mobile apps with conversational interface, pay libraries, blogs,
+                    and social media.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Develop app to give security to private citadels with QR codes.</p>
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Gea Internacional (Ecuador) - Web Developer</h4>
+
+              <span>2016 — 2017</span>
+              <ul>
+                <li>
+                  <p class="timeline-text">• Develop modules to process massive files to databases automatically.</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Develop Back-end and Front-end with Laravel to save massive files and show
+                    reports.</p>
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Sinerga Soluciones - Web Developer</h4>
+
+              <span>2013 - 2014</span>
+              <ul>
+                <li>
+                  <p class="timeline-text">• Develop a web for the administration and loan books of the library to
+                    the students in the IIASA CAT academy. Back-end and Front-end with JSF, PrimeFaces, JavaScript and
+                    CSS</p>
+                </li>
+                <li>
+                  <p class="timeline-text">• Develop a 2014 FIFA World Cup predictions iOS app in Objective-C.</p>
+                </li>
+              </ul>
+
+            </li>
+          </ol>
+
+        </section>
+
+        <!--
+          - skills
+        -->
+        <section class="skill">
+
+          <h3 class="h3 skills-title">Competencies and Skills</h3>
+          <ul class=" content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Competencies</h5>
+              </div>
+
+              <div class="badge-wrapper">
+                <span class=" badge">Focus</span>
+                <span class=" badge">Organization</span>
+                <span class=" badge">Responsibility</span>
+                <span class=" badge">Results orientation</span>
+              </div>
+
+            </li>
+
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Skills</h5>
+              </div>
+
+              <div class="badge-wrapper">
+                <span class=" badge">Adaptability</span>
+                <span class=" badge">Resilience</span>
+                <span class=" badge">Teamwork</span>
+                <span class=" badge">Positive</span>
+                <span class=" badge">Self-taught</span>
+                <span class=" badge">Written communication</span>
+                <span class=" badge">Active listening</span>
+                <span class=" badge">Fast learner</span>
+              </div>
+
+            </li>
+
+
+          </ul>
+
+
+          <h3 class="h3 skills-title"></h3>
+          <h3 class="h3 skills-title">Technical skills</h3>
+          <ul class=" content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Mobile developing</h5>
+              </div>
+
+              <div class="badge-wrapper">
+                <span class=" badge">Xcode</span>
+                <span class=" badge">cocoapods</span>
+                <span class=" badge">Flutter</span>
+                <span class=" badge">React-Native</span>
+                <span class=" badge">Firebase</span>
+                <span class=" badge">MVC</span>
+                <span class=" badge">MVVM</span>
+                <span class=" badge">MVVM-C</span>
+                <span class=" badge">VIPER</span>
+                <span class=" badge">Clean Architecures</span>
+                <span class=" badge">SOLID</span>
+
+              </div>
+
+            </li>
+
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">iOS developing</h5>
+              </div>
+
+              <div class="badge-wrapper">
+                <span class=" badge">Swift</span>
+                <span class=" badge">Objective-C</span>
+                <span class=" badge">UIKit</span>
+                <span class=" badge">SwiftUI</span>
+                <span class=" badge">PromiseKit</span>
+                <span class=" badge">RxSwift</span>
+                <span class=" badge">Combine</span>
+                <span class=" badge">ARKit basics</span>
+                <span class=" badge">CoreData</span>
+                <span class=" badge">CoreLocation</span>
+                <span class=" badge">MapKit</span>
+                <span class=" badge">CoreBluetooth</span>
+                <span class=" badge">AWS Amplify</span>
+                <span class=" badge">Firebase</span>
+                <span class=" badge">Alamofire</span>
+                <span class=" badge">PassKit</span>
+              </div>
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Web developing</h5>
+              </div>
+
+              <div class="badge-wrapper">
+                <span class=" badge">HTML</span>
+                <span class=" badge">CSS</span>
+                <span class=" badge">JavaScript</span>
+                <span class=" badge">PHP</span>
+                <span class=" badge">Wordpress</span>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Databases</h5>
+              </div>
+
+              <div class="badge-wrapper">
+                <span class=" badge">MySql</span>
+                <span class=" badge">SqLite</span>
+                <span class=" badge">Redis (a little)</span>
+
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="select-item">
+              <button data-select-item>GitHub Apps</button>
+            </li>
+
+            <li class="select-item">
+              <button data-select-item>Published Apps</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web development</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>GitHub Apps</button>
+              </li>
+  
+              <li class="select-item">
+                <button data-select-item>Published Apps</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web development</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/projects/web-personal-profile.png" alt="Profile" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Personal Profile</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="github apps">
+              <a href="https://github.com/adpaladines/The-Sounds-Store" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/projects/github/app-the-sounds-store.png" alt="The-Sounds-Store" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">The Sounds Store</h3>
+
+                <p class="project-category">GitHub Apps</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="published apps">
+              <a href="https://apps.apple.com/us/app/asist-alianza/id1147228783" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/projects/app-alianza-assist.png" alt="Alianza Asist" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Alianza Asist</h3>
+
+                <p class="project-category">Published Apps</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="published apps">
+              <a href="https://apps.apple.com/us/app/chubb-ec/id880222452" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/projects/app-chubb.png" alt="CHUBB EC" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">CHUBB EC</h3>
+
+                <p class="project-category">Published Apps</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="published apps">
+              <a href="https://apps.apple.com/us/app/tienesmás/id1452925788" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/projects/app-tienesmas.png" alt="tienesmás" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">tienesmás</h3>
+
+                <p class="project-category">Published Apps</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="published apps">
+              <a href="https://apps.apple.com/us/app/petlover-app/id1424416939" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/projects/app-petlover.png" alt="Petlover App" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Petlover App</h3>
+
+                <p class="project-category">Published Apps</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="published apps">
+              <a href="https://apps.apple.com/us/app/notijob/id1495130949?platform=iphone" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/projects/app-notijob.png" alt="NotiJob" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">NotiJob</h3>
+
+                <p class="project-category">Published Apps</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
+
+                  <p class="blog-text">
+                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
+
+                  <p class="blog-text">
+                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #80</h3>
+
+                  <p class="blog-text">
+                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
+
+                  <p class="blog-text">
+                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
+
+                  <p class="blog-text">
+                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #79</h3>
+
+                  <p class="blog-text">
+                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+      <div class="modal-container" data-modal-container>
+
+        <div class="overlay"></div>
+
+        <section class="testimonials-modal">
+
+          <div class="modal-content">
+
+            <div>
+              <div class="loading "></div>
+              <p>Sending email...</p>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28614.265446960348!2d-80.13990404528671!3d26.301127987252947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d8e2903d4afb6f%3A0xe5982b2abf356617!2sDeerfield%20Beach%2C%20FL!5e0!3m2!1sen!2sus!4v1675648892041!5m2!1sen!2sus"
+              width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form id="contact-form" action="?" method="POST" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Full name" required
+                data-form-input>
+
+              <input type="email" id="email" name="email" class="form-input" placeholder="Email address" required
+                data-form-input>
+            </div>
+
+            <textarea id="message" name="message" class="form-input form-input-bottom" placeholder="Your Message"
+              required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+            <div class="loading" data-form-spinner></div>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js?v=1.2"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
